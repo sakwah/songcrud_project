@@ -13,6 +13,6 @@ class Song(models.Model):
     title = models.CharField(max_length=400)
     date_released = models.DateField(default=datetime.today)
     likes = models.IntegerField()
-    artiste_id = models.IntegerField()
 class Lyric(models.Model):
-    pass
+    Song = models.ForeignKey(Song, on_delete=models.CASCADE)
+    content = models.CharField(max_length=800)
