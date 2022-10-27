@@ -5,8 +5,8 @@ from datetime import datetime
 # Create your models here.
 
 class Artiste(models.Model):
-    first_name = models.CharField(max_length=400)
-    last_name = models.CharField(max_length=400)
+    first_name = models.CharField(max_length=40)
+    last_name = models.CharField(max_length=40)
     age = models.IntegerField()
 class Song(models.Model):
     Artiste = models.ForeignKey(Artiste, on_delete=models.CASCADE)
