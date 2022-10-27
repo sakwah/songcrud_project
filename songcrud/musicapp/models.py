@@ -1,13 +1,18 @@
 from unittest.util import _MAX_LENGTH
 from django.db import models
+from datetime import datetime
 
 # Create your models here.
 
 class Artiste(models.Model):
     first_name = models.CharField(max_length=400)
     last_name = models.CharField(max_length=400)
-    age = models.IntegerField
+    age = models.IntegerField()
 class Song(models.Model):
-    pass
+    Artiste = models.ForeignKey(Artiste, on_delete=models.CASCADE)
+    title = models.CharField(max_length=400)
+    date_released = models.DateField(default=datetime.today)
+    likes = models.IntegerField()
+    artiste_id = models.IntegerField()
 class Lyric(models.Model):
     pass
